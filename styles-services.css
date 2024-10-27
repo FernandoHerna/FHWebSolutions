@@ -120,7 +120,7 @@ nav {
 header {
     height: 30vh;
     position: relative;
-    background-image: url('/images/image4.jpeg');
+    background-image: url('image4.jpeg');
     background-size: cover;
     background-position: center;
     color: white;
