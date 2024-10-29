@@ -18,18 +18,55 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Typing Effect for Header Text
-    const text = "Web Developer | Crafting modern websites with a professional touch."; 
-    const typingSpeed = 100;
+    const headerText = "Web Developer | Crafting modern websites with a professional touch."; 
+    const typingSpeedHeader = 100;
     let i = 0;
 
-    function typeWriter() {
-        if (i < text.length) {
-            document.getElementById("typed-text").innerHTML += text.charAt(i);
+    function typeWriterHeader() {
+        if (i < headerText.length) {
+            document.getElementById("typed-text").innerHTML += headerText.charAt(i);
             i++;
-            setTimeout(typeWriter, typingSpeed);
+            setTimeout(typeWriterHeader, typingSpeedHeader);
         }
     }
-    typeWriter(); // Start typing effect
+    typeWriterHeader(); // Start typing effect for header
+
+    // Typing Effect for About Section
+    const aboutTextElement = document.getElementById('about-text');
+    const aboutTextContent = aboutTextElement.innerHTML.trim(); // Get HTML content (including <br> tags)
+    aboutTextElement.innerHTML = ''; // Clear content to start typing animation
+
+    const typingDurationAbout = 6000; // 6 seconds
+    const typingIntervalAbout = typingDurationAbout / aboutTextContent.replace(/<br\s*\/?>/gi, '').length; // Adjust interval, ignoring <br> tags
+
+    function typeWriterAbout() {
+        let index = 0;
+        const typing = setInterval(() => {
+            aboutTextElement.innerHTML += aboutTextContent.charAt(index) === "<" ? "<br>" : aboutTextContent.charAt(index);
+            index++;
+            if (index === aboutTextContent.length) {
+                clearInterval(typing); // Stop when done typing
+            }
+        }, typingIntervalAbout);
+    }
+
+    // Intersection Observer for About Typing Effect
+    const aboutObserverOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1 // Trigger when 10% of the section is in view
+    };
+
+    const aboutObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                typeWriterAbout(); // Start typing effect for about section
+                observer.unobserve(aboutTextElement); // Stop observing once animation starts
+            }
+        });
+    }, aboutObserverOptions);
+
+    aboutObserver.observe(aboutTextElement); // Start observing the text element
 
     // Service Carousel
     const services = document.querySelectorAll('.service');
@@ -96,13 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize the first service
     updateService(currentIndex);
-
-    // Handle Contact Button Clicks
-    const contactButtons = document.querySelectorAll('.contact-button');
-    contactButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            alert('Contact form coming soon!'); // Placeholder action
-        });
-    });
 });
+
+
 
