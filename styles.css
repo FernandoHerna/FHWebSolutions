@@ -51,17 +51,19 @@ nav {
     border-bottom: 5px solid #FFB703;
 }
 
-/* Adjust Logo Image */
+/* Adjust Logo Image for large screens */
 .logo img {
-    max-width: 150px; /* Adjust the size as needed */
+    max-width: 50px;
     height: auto;
-    display: block; /* Ensures no extra space around the image */
+    display: block;
 }
 
+/* Burger Menu and Navigation Links */
 .nav-links {
     display: flex;
     list-style: none;
     transition: all 0.5s ease;
+    text-shadow: 2px 2px 2px black;
 }
 
 .nav-links li {
@@ -89,7 +91,7 @@ nav {
     justify-content: space-between;
     width: 25px;
     height: 21px;
-    z-index: 102; /* Added z-index to ensure it stays above nav links */
+    z-index: 102;
 }
 
 .burger div {
@@ -99,10 +101,65 @@ nav {
     transition: all 0.3s ease;
 }
 
-/* Hide mobile logo by default (it will only be visible on mobile) */
+/* Mobile Logo and Title */
 .mobile-logo {
     display: none;
+    text-align: center;
 }
+
+.menu-title {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 5px; /* Adjusted spacing between text and logo */
+    margin-top: 30px;
+}
+
+/* Smaller Logo for Burger Menu */
+.mobile-logo img {
+    max-width: 30px; /* Set to smaller size specifically for mobile */
+    height: auto;
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+    /* Show burger menu */
+    .burger {
+        display: flex;
+    }
+
+    /* Transform nav links into a mobile-friendly menu */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        background-color: #3498db;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+    }
+
+    /* Show mobile logo and title when menu is open */
+    .nav-active .mobile-logo {
+        display: block;
+    }
+
+    .nav-active .menu-title {
+        display: block;
+    }
+
+    /* Display nav links in mobile view */
+    .nav-links.nav-active {
+        display: flex;
+    }
+}
+
+
+
 
 
 
@@ -312,25 +369,24 @@ header p {
 
 
 
-
 /* Services Section */
 #services {
     padding-top: 70px;
     padding-bottom: 70px;
     background-color: #FFB703;
     display: flex;
-    justify-content: center; /* Center the section's content */
+    justify-content: center;
     align-items: center;
 }
 
 .services-container {
     display: flex;
     align-items: center;
-    max-width: 1200px; /* Set a max width for larger screens */
-    width: 100%; /* Allow it to take up full width */
-    margin: 0 auto; /* Center it within the parent container */
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
     justify-content: center;
-    padding: 0 20px; /* Add some padding inside the container */
+    padding: 0 20px;
 }
 
 .services-content {
@@ -345,26 +401,52 @@ header p {
     padding: 50px;
 }
 
+/* Centered Title Styling */
+.services-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 2px black;
+}
+
+.service-title {
+    color: white;
+}
+
+.service-description {
+    color: white;
+}
+
+
+
+
+/* Button Styling */
+.contact-button {
+    display: inline-block;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none; /* Ensure it appears as a button */
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.contact-button:hover {
+    background-color: #2980b9;
+}
+
 .service {
-    display: none; /* Hide all services by default */
+    display: none;
     margin-bottom: 20px;
 }
 
 .service.active {
-    display: block; /* Show the active service */
-}
-
-.service-description {
-    max-height: 200px; /* Set a max height for the description */
-    overflow: hidden;
-    transition: max-height 0.3s ease, opacity 0.3s ease; /* Smooth transition */
-    opacity: 1; /* Make it fully visible */
-}
-
-/* When the service is active, adjust the description */
-.service.active .service-description {
-    max-height: 200px; /* Adjust height if needed */
-    opacity: 1; /* Ensure it's visible */
+    display: block;
 }
 
 .services-right {
@@ -382,9 +464,8 @@ header p {
     transition: opacity 0.3s ease;
 }
 
-/* Arrows */
 .arrows {
-    flex: 0 0 auto; /* Prevent arrows from growing */
+    flex: 0 0 auto;
     cursor: pointer;
 }
 
@@ -396,22 +477,6 @@ header p {
 
 #prev-arrow:hover, #next-arrow:hover {
     color: #8ECAE6;
-}
-
-.contact-button {
-    background-color: #3498db; /* Button color */
-    color: #ffffff; /* Text color */
-    border: none; /* Remove default border */
-    padding: 10px 15px; /* Add padding */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 16px; /* Font size */
-    transition: background-color 0.3s ease; /* Smooth transition for background */
-    margin-top: 10px; /* Space above the button */
-}
-
-.contact-button:hover {
-    background-color: #2980b9; /* Darker shade on hover */
 }
 
 /* Mobile */
@@ -427,7 +492,16 @@ header p {
     .services-right {
         margin-top: 20px;
     }
+
+    /* Add this section to style the buttons */
+    .header-buttons {
+        display: flex; /* Ensure buttons are in a flex container */
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10px; /* Space between buttons */
+        margin-top: 20px; /* Additional space above the buttons */
+    }
 }
+
 
 
 
@@ -485,6 +559,22 @@ header p {
 
 #about p {
     margin: 0;
+}
+
+/* Blinking cursor effect */
+#about-text::after {
+    content: '|';
+    opacity: 1;
+    animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+    from, to {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
 }
 
 /* Extra-large screens (desktops, 1200px and above) */
@@ -549,6 +639,11 @@ header p {
     #about p {
         margin: 0.5rem 0; /* Add a bit of margin between paragraphs */
     }
+
+    #about h2 {
+        text-align: center;
+        text-shadow: 2px 2px 2px white;
+    }
 }
 
 /* Extra-small screens (smaller than 575px) */
@@ -587,60 +682,49 @@ header p {
     text-align: center;
 }
 
+#follow h2 {
+    margin-bottom: 1.5rem; /* Adds space below the heading */
+    text-shadow: 2px 2px 2px white;
+}
+
 .social-links {
     display: flex;
-    justify-content: center; /* Centers the social items */
+    justify-content: center;
+    align-items: center;
 }
 
 .social-item {
     margin: 0 15px;
-    text-align: center; /* Center align items */
-    display: flex; /* Use flexbox for vertical alignment */
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Center align children horizontally */
-}
-
-.social {
-    color: #3498db; /* Color of the text */
-    text-decoration: none;
-    font-size: 1.5rem; /* Font size for the social link */
+    text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .social-icon {
-    margin-top: 5px; /* Adds space between the link and the icon */
-    font-size: 3rem; /* Increased size of the icon */
-    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for size and color change */
-    color: black; /* Initial color of the icons */
+    font-size: 3rem;
+    color: black;
+    transition: transform 0.3s ease; /* Smooth hover effect */
 }
 
-/* Change icon color on hover for LinkedIn */
-.social-item:nth-child(1):hover .social-icon {
-    transform: scale(1.2); /* Increase size of the icon on hover */
-    color: #0a66c2; /* LinkedIn hover color */
+/* Hover Effects */
+.social-item:hover .social-icon {
+    transform: scale(1.2); /* Scale up on hover */
 }
 
-/* Change icon color on hover for Facebook */
-.social-item:nth-child(2):hover .social-icon {
-    transform: scale(1.2); /* Increase size of the icon on hover */
-    color: #4267B2; /* Facebook hover color */
+#linkedin:hover .social-icon {
+    color: #0a66c2; /* LinkedIn color */
 }
 
-/* Change icon color on hover for Instagram */
-.social-item:nth-child(3):hover .social-icon {
-    transform: scale(1.2); /* Increase size of the icon on hover */
-    background: linear-gradient(45deg, #405DE6, #5B51D8, #833AB4, #C13584, #E1306C, #FD1D1D, #FDC830, #F37335); /* Instagram gradient color */
-    -webkit-background-clip: text; /* Clip the background to the text */
-    -webkit-text-fill-color: transparent; /* Make the text transparent to show gradient */
+#facebook:hover .social-icon {
+    color: #4267B2; /* Facebook color */
 }
 
-/* Ensure background is applied correctly */
-.social-item:nth-child(3):hover .social-icon {
-    color: transparent; /* Ensure icon color is transparent */
+#instagram:hover .social-icon {
+    background: linear-gradient(45deg, #405DE6, #5B51D8, #833AB4, #C13584, #E1306C, #FD1D1D, #FDC830, #F37335);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.social:hover {
-    text-decoration: underline;
-}
 
 
 
@@ -692,6 +776,11 @@ header p {
 
 .contact-info h2 {
     margin-bottom: 1rem;
+}
+
+.contact-form h2 {
+    text-align: center; /* Center the text */
+    margin-bottom: 1rem; /* Space below the heading */
 }
 
 /* Responsive Image */
@@ -817,6 +906,82 @@ header p {
         padding: 0.7rem;
     }
 }
+
+/* Contact Form Elements - Input, Textarea, Select */
+#contact input,
+#contact textarea,
+#contact select { /* Apply styles consistently */
+    width: 100%; /* Full width like the other inputs */
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* Focus state */
+#contact input:focus,
+#contact textarea:focus,
+#contact select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+/* Button Styling */
+#contact button {
+    padding: 1rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#contact button:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 992px) {
+    #contact input,
+    #contact textarea,
+    #contact select {
+        width: 90%; /* Full width with some padding */
+        margin: 0 auto 1rem; /* Center align for smaller screens */
+    }
+
+    #contact button {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-container {
+        padding: 1rem;
+        box-shadow: none;
+    }
+
+    #contact input,
+    #contact textarea,
+    #contact select {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    #contact button {
+        font-size: 0.9rem;
+        padding: 0.7rem;
+    }
+}
+
+
 
 
 
