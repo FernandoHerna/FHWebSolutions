@@ -15,6 +15,7 @@
     <meta name="twitter:description" content="Crafting modern websites with a professional touch.">
     <meta name="twitter:image" content="logo-transparent-png.png">
     <title>FH Web Solutions</title>
+    <link rel="stylesheet" href="header-footer.css">
     <link rel="stylesheet" href="styles-about.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script type="application/ld+json">
@@ -40,12 +41,17 @@
     <!-- Navigation Bar -->
     <nav role="navigation" aria-label="Main navigation">
         <div class="logo">
-            <img src="logo-transparent-png.png" alt="logo con texto FH Web Solutions Your Website Your Way">
+            <a href="index.html"> <!-- Make logo clickable -->
+                <img src="logo-transparent-png.png" alt="logo con texto FH Web Solutions Your Website Your Way">
+            </a>
         </div>
         <ul class="nav-links">
-            <!-- Logo for Mobile -->
+            <!-- Burger menu logo with added label -->
             <div class="mobile-logo">
-                <img src="logo-transparent-png.png" alt="Mobile Logo FH Web Solutions">
+                <span class="menu-title">FH Web Solutions</span> <!-- New text above the logo -->
+                <a href="index.html">
+                    <img src="logo-transparent-png copy 2.png" alt="Mobile Logo FH Web Solutions">
+                </a>
             </div>
             <li><a href="index.html">Home</a></li>
             <li><a href="Services.html">Services</a></li>
@@ -74,6 +80,18 @@
 
 <!-- Main Content -->
 <main>
+
+    <!-- About Section -->
+<section class="about-section">
+    <h2>Why working with us?</h2>
+    <p>
+        At FH Web Solutions, we believe in crafting websites that are more than just visually appealing – they’re experiences designed to captivate and engage. I'm Fernando Hernandez, a web developer based in France, driven by a commitment to create websites that elevate brands and help businesses succeed. My work combines the latest in design with seamless functionality, resulting in professional, user-friendly sites tailored to each client’s unique goals.
+<br><br>
+        With years of experience in both front-end and back-end development, I code from scratch to ensure precision, customization, and a streamlined approach for every project. Whether you’re looking for a polished portfolio, an interactive e-commerce platform, or a sophisticated corporate site, I’m here to make your vision a reality with high-quality results that truly resonate.
+        <br><br>
+        Beyond development, I’m dedicated to staying at the forefront of web trends and technologies, constantly exploring fresh ideas to bring innovative solutions to your project. Let’s collaborate to turn your ideas into an impactful online presence that stands out. Together, we’ll bring your goals to life!
+    </p>
+</section>
 
     <!-- Skills Section -->
     <section class="skills-section">
@@ -114,7 +132,7 @@
 
     <!-- Experience/Timeline Section -->
     <section class="timeline-section">
-        <h2>My Journey</h2>
+        <h2>My Journey</h2><br>
         <div class="timeline">
             <div class="timeline-item">
                 <h3>2024 - Web Developer at FH Web Solutions</h3>
@@ -139,7 +157,7 @@
     <section class="cta-section">
         <h2>Let’s Work Together!</h2>
         <p>If you're looking for a web developer to bring your ideas to life, let's get in touch and discuss your project.</p>
-        <a href="/Contact.html" class="btn">Contact Me</a>
+        <a href="Contact.html" class="btn">Contact Me</a>
     </section>
 </main>
 
@@ -184,7 +202,7 @@
                     <i class="far fa-envelope-open"></i>
                     <div class="cta-text">
                         <h4>Mail us</h4>
-                        <span>lfha15@gmail.com</span>
+                        <span>contact@fhwebsolutions.com/span>
                     </div>
                 </div>
             </div>
