@@ -40,14 +40,19 @@
 
 
     <!-- Navigation Bar -->
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
         <div class="logo">
-            <img src="logo-transparent-png.png" alt="logo con texto FH Web Solutions Your Website Your Way">
+            <a href="index.html"> <!-- Make logo clickable -->
+                <img src="logo-transparent-png.png" alt="logo con texto FH Web Solutions Your Website Your Way">
+            </a>
         </div>
         <ul class="nav-links">
-            <!-- Logo for Mobile -->
+            <!-- Burger menu logo with added label -->
             <div class="mobile-logo">
-                <img src="logo-transparent-png.png" alt="Mobile Logo FH Web Solutions">
+                <span class="menu-title">FH Web Solutions</span> <!-- New text above the logo -->
+                <a href="index.html">
+                    <img src="logo-transparent-png copy 2.png" alt="Mobile Logo FH Web Solutions">
+                </a>
             </div>
             <li><a href="index.html">Home</a></li>
             <li><a href="Services.html">Services</a></li>
@@ -146,7 +151,12 @@
     </section>
     
 
-
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <h2>Let’s Work Together!</h2>
+        <p>If you're looking for a web developer to bring your ideas to life, let's get in touch and discuss your project.</p>
+        <a href="Contact.html" class="btn">Contact Me</a>
+    </section>
 
 
     <!-- Section Divider -->
